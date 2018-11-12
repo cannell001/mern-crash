@@ -24,11 +24,9 @@ class PostForm extends Component {
       responseType: "json"
     };
 
-    axios
-      .post("https://jsonplaceholder.typicode.com/posts", post, config)
-      .then(response => {
-        console.log(response.data);
-      });
+    axios.post("api/posts", post, config).then(response => {
+      console.log(response.data);
+    });
   };
 
   render() {
