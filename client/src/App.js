@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
+//import { createStore, applyMiddleware } from "redux"; - move to store.js
 
 import Posts from "./components/Posts";
 import PostForm from "./components/Postform";
 
-const store = createStore(() => [], {}, applyMiddleware());
+//const store = createStore(() => [], {}, applyMiddleware()); - delete and
+//import store from store.js
+import store from "./store";
 
 class App extends Component {
   render() {
