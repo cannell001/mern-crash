@@ -1,17 +1,14 @@
-/*
-npm i redux react-redux
-redux-thunk = middleware for redux allows us to directly access the dispatch()
-method in order to make asynchronous calls from the actions.
-*/
+//https://redux.js.org/basics/store
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-//Bring in a Provider - a React component glue for react and redux
 import { Provider } from "react-redux";
-//Wrap everything inside Provider component. Provider takes store as attribute
-//store contains the state
+import { createStore, applyMiddleware } from "redux";
+
 import Posts from "./components/Posts";
 import PostForm from "./components/Postform";
+
+const store = createStore(() => [], {}, applyMiddleware());
 
 class App extends Component {
   render() {
