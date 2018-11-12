@@ -1,5 +1,8 @@
-import axios from "axios";
+//import axios from "axios";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { createPost } from "../actions/postActions";
 
 class PostForm extends Component {
   state = {
@@ -19,14 +22,18 @@ class PostForm extends Component {
       body: this.state.body
     };
 
-    let config = {
-      headers: { "Content-Type": "application/json" },
-      responseType: "json"
-    };
+    //move to postAction.js
+    // let config = {
+    //   headers: { "Content-Type": "application/json" },
+    //   responseType: "json"
+    // };
+    //
+    // axios.post("api/posts", post, config).then(response => {
+    //   console.log(response.data);
+    // });
 
-    axios.post("api/posts", post, config).then(response => {
-      console.log(response.data);
-    });
+    //call action - createAction
+    this.props.createPost(post);
   };
 
   render() {
@@ -62,4 +69,11 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+PostForm.propTypes = {
+  createPost: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { createPost }
+)(PostForm);
