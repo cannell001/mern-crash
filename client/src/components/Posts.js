@@ -7,7 +7,7 @@ class Posts extends Component {
   };
 
   componentWillMount() {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
+    axios.get("api/posts").then(res => {
       const posts = res.data;
       this.setState({ posts });
     });
