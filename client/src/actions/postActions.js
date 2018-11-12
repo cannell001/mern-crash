@@ -15,7 +15,7 @@ export const fetchPosts = () => dispatch => {
 
 export const createPost = post => dispatch => {
   console.log("action called");
-  fetch("https://jsonplaceholder.typicode.com/posts", {
+  fetch("http://localhost:5001/api/items", {
     method: "POST",
     headers: {
       "content-type": "application/json"
