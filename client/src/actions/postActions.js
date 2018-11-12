@@ -13,16 +13,3 @@ export const fetchPosts = () => dispatch => {
       })
     );
 };
-
-// export function fetchPosts() {
-//   return function(dispatch) {
-//     fetch("https://jsonplaceholder.typicode.com/posts")
-//       .then(posts =>
-//         dispatch({
-//           type: FETCH_POSTS,
-//           payload: posts
-//
-//         })
-//       );
-//   };
-// }
