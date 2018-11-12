@@ -1,7 +1,7 @@
 import { FETCH_POSTS, NEW_POST } from "./types";
 
 export const fetchPosts = () => dispatch => {
-  fetch("https://jsonplaceholder.typicode.com/posts")
+  fetch("api/posts")
     .then(res => res.json())
     .then(posts =>
       dispatch({
@@ -11,11 +11,8 @@ export const fetchPosts = () => dispatch => {
     );
 };
 
-//grab fetch() request from postForm component
-
 export const createPost = post => dispatch => {
-  console.log("action called");
-  fetch("https://jsonplaceholder.typicode.com/posts", {
+  fetch("api/posts", {
     method: "POST",
     headers: {
       "content-type": "application/json"
