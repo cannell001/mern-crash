@@ -1,18 +1,23 @@
+//implement the FETCH_POSTS action in the Component
+//to transfer state from store to component
+//import connect to link component to redux store
+//redux store has been 'provided' by the Provider component
+//need to call action FETCH_POSTS so import it as well
+//export default connect()
+//call fetchPosts() as a prop in lifecycle method
+//fetchPosts() dispatches type and payload to reducer - console.log('fetching');
+//State has been returned to component by reducer - console.log('reducer')
+//now we need to get the new items from the State
+//we use mapStateToProps()
 import axios from "axios";
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPosts } from "../actions/postActions";
 
 class Posts extends Component {
-  // state = {
-  //   posts: []
-  // }; - dont need component state
-  //
-  // componentWillMount() {
-  //   axios.get("api/posts").then(res => {
-  //     const posts = res.data;
-  //     this.setState({ posts });
-  //   });
-  // } - No longer need because fetch() moved to actions
-
+  componentWillMount() {
+    this.props.fetchPosts();
+  }
   render() {
     const postItems = this.state.posts.map(post => (
       <div key={post.id}>
@@ -30,4 +35,7 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default connect(
+  null,
+  { fetchPosts }
+)(Posts);
