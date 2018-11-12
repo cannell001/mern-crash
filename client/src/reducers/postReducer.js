@@ -10,6 +10,11 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case FETCH_POSTS:
+      return {
+        ...state, // Return the current initialState
+        items: action.payload //add the data from the action.paylooad to items
+      };
     default:
       return state;
   }
