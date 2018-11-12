@@ -7,8 +7,7 @@ const initialState = {};
 const middleware = [thunk];
 
 const store = createStore(
-  rootReducer, //create file named index.js and place in folder named reducers
-  //import the rootReducer
+  rootReducer,
   initialState,
   compose(
     applyMiddleware(...middleware),
